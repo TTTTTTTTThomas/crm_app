@@ -2,6 +2,11 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   
+  # Admin custom routes for customers
+  namespace :admin do
+    resources :customers
+  end
+  
   # Customer routes
   root "customers#index"
   get "customers/alphabetized"

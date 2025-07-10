@@ -1,0 +1,85 @@
+<div class="admin-header">
+  <h1>Customer Details</h1>
+  <div>
+    <%= link_to 'Edit', edit_admin_customer_path(@customer), class: 'btn btn-warning' %>
+    <%= link_to 'Back to List', admin_customers_path, class: 'btn btn-secondary' %>
+  </div>
+</div>
+
+<div class="admin-content">
+  <div class="customer-details">
+    <div class="detail-row">
+      <label>ID:</label>
+      <span><%= @customer.id %></span>
+    </div>
+
+    <div class="detail-row">
+      <label>Full Name:</label>
+      <span><%= @customer.full_name %></span>
+    </div>
+
+    <div class="detail-row">
+      <label>Phone Number:</label>
+      <span><%= @customer.phone_number %></span>
+    </div>
+
+    <div class="detail-row">
+      <label>Email Address:</label>
+      <span><%= @customer.email_address.present? ? @customer.email_address : '<em>No email provided</em>'.html_safe %></span>
+    </div>
+
+    <div class="detail-row">
+      <label>Notes:</label>
+      <span><%= @customer.notes.present? ? simple_format(@customer.notes) : '<em>No notes</em>'.html_safe %></span>
+    </div>
+
+    <div class="detail-row">
+      <label>Customer Photo:</label>
+      <div>
+        <% if @customer.image.attached? %>
+          <%= image_tag @customer.image, alt: @customer.full_name, 
+                        style: 'max-width: 300px; height: auto; border: 1px solid #ddd; border-radius: 4px; margin-top: 10px;' %>
+        <% else %>
+          <em>No image uploaded</em>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="detail-row">
+      <label>Created:</label>
+      <span><%= @customer.created_at.strftime('%B %d, %Y at %I:%M %p') %></span>
+    </div>
+
+    <div class="detail-row">
+      <label>Last Updated:</label>
+      <span><%= @customer.updated_at.strftime('%B %d, %Y at %I:%M %p') %></span>
+    </div>
+  </div>
+</div>
+
+<style>
+.customer-details {
+  max-width: 600px;
+}
+
+.detail-row {
+  display: flex;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+}
+
+.detail-row label {
+  font-weight: bold;
+  min-width: 150px;
+  margin-right: 20px;
+}
+
+.detail-row span {
+  flex: 1;
+}
+</style>

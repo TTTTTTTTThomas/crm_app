@@ -1,0 +1,97 @@
+<div class="admin-header">
+  <h1>Customer Management</h1>
+  <%= link_to 'New Customer', new_admin_customer_path, class: 'btn btn-primary' %>
+</div>
+
+<div class="admin-content">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Full Name</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Image</th>
+        <th>Created</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @customers.each do |customer| %>
+        <tr>
+          <td><%= customer.id %></td>
+          <td><%= link_to customer.full_name, admin_customer_path(customer) %></td>
+          <td><%= customer.phone_number %></td>
+          <td><%= customer.email_address.present? ? customer.email_address : '<em>No email</em>'.html_safe %></td>
+          <td>
+            <% if customer.image.attached? %>
+              <span style="color: green;">📷 Has image</span>
+            <% else %>
+              <span style="color: #999;">No image</span>
+            <% end %>
+          </td>
+          <td><%= customer.created_at.strftime('%Y-%m-%d') %></td>
+          <td>
+            <%= link_to 'View', admin_customer_path(customer), class: 'btn btn-sm btn-info' %>
+            <%= link_to 'Edit', edit_admin_customer_path(customer), class: 'btn btn-sm btn-warning' %>
+            <%= link_to 'Delete', admin_customer_path(customer), method: :delete, 
+                        confirm: 'Are you sure?', class: 'btn btn-sm btn-danger' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<style>
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 5px;
+}
+
+.admin-content {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.btn {
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 4px;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.btn-primary { background: #007bff; color: white; }
+.btn-info { background: #17a2b8; color: white; }
+.btn-warning { background: #ffc107; color: black; }
+.btn-danger { background: #dc3545; color: white; }
+.btn-sm { padding: 4px 8px; font-size: 12px; }
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.table thead th {
+  background: #f8f9fa;
+  font-weight: bold;
+}
+
+.table-striped tbody tr:nth-child(odd) {
+  background: #f9f9f9;
+}
+</style>
