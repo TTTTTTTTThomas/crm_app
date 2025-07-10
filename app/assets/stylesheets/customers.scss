@@ -1,0 +1,54 @@
+/* Custom CSS for CRM Customer views */
+
+.card {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.image img {
+  object-fit: cover;
+  width: 64px;
+  height: 64px;
+}
+
+.icon-text .icon {
+  margin-right: 0.5rem;
+}
+
+.notification {
+  margin-top: 2rem;
+}
+
+.level {
+  margin-bottom: 2rem;
+}
+
+.section {
+  padding-top: 2rem;
+}
+
+/* Custom styling for missing email indicator */
+.has-text-danger .icon {
+  color: #ff3860;
+}
+
+/* Button hover effects */
+.button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Title styling */
+.title {
+  margin-bottom: 1.5rem;
+  color: #363636;
+}
+
+.subtitle {
+  color: #4a4a4a;
+}

@@ -1,0 +1,50 @@
+<div class="card mb-4">
+  <div class="card-content">
+    <div class="media">
+      <div class="media-left">
+        <figure class="image is-64x64">
+          <% if customer.image.attached? %>
+            <%= image_tag customer.image, class: "is-rounded", alt: customer.full_name %>
+          <% else %>
+            <img src="https://via.placeholder.com/64x64/cccccc/ffffff?text=No+Image" alt="No Image" class="is-rounded">
+          <% end %>
+        </figure>
+      </div>
+      <div class="media-content">
+        <p class="title is-4"><%= customer.full_name %></p>
+        <p class="subtitle is-6">
+          <span class="icon-text">
+            <span class="icon">
+              <i class="fas fa-phone"></i>
+            </span>
+            <span><%= customer.phone_number %></span>
+          </span>
+        </p>
+        <% if customer.email_address.present? %>
+          <p class="subtitle is-6">
+            <span class="icon-text">
+              <span class="icon">
+                <i class="fas fa-envelope"></i>
+              </span>
+              <span><%= customer.email_address %></span>
+            </span>
+          </p>
+        <% else %>
+          <p class="subtitle is-6 has-text-danger">
+            <span class="icon-text">
+              <span class="icon">
+                <i class="fas fa-exclamation-triangle"></i>
+              </span>
+              <span>No email address</span>
+            </span>
+          </p>
+        <% end %>
+      </div>
+    </div>
+    <% if customer.notes.present? %>
+      <div class="content">
+        <p><strong>Notes:</strong> <%= customer.notes %></p>
+      </div>
+    <% end %>
+  </div>
+</div>
