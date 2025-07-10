@@ -262,11 +262,6 @@ GEM
       prettyprint
     prettyprint (0.2.0)
     prism (1.4.0)
-    propshaft (1.1.0)
-      actionpack (>= 7.0.0)
-      activesupport (>= 7.0.0)
-      rack
-      railties (>= 7.0.0)
     psych (5.2.6)
       date
       stringio
@@ -387,6 +382,14 @@ GEM
       fugit (~> 1.11.0)
       railties (>= 7.1)
       thor (~> 1.3.1)
+    sprockets (4.2.2)
+      concurrent-ruby (~> 1.0)
+      logger
+      rack (>= 2.2.4, < 4)
+    sprockets-rails (3.5.2)
+      actionpack (>= 6.1)
+      activesupport (>= 6.1)
+      sprockets (>= 3.0.0)
     sqlite3 (2.7.2-aarch64-linux-gnu)
     sqlite3 (2.7.2-aarch64-linux-musl)
     sqlite3 (2.7.2-arm-linux-gnu)
@@ -462,7 +465,6 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   kamal
-  propshaft
   puma (>= 5.0)
   rails (~> 8.0.2)
   rubocop-rails-omakase
@@ -470,6 +472,7 @@ DEPENDENCIES
   solid_cable
   solid_cache
   solid_queue
+  sprockets-rails
   sqlite3 (>= 2.1)
   stimulus-rails
   thruster
