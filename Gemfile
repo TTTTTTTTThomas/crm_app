@@ -45,7 +45,7 @@ gem "activeadmin"
 gem "devise"
 
 # Bulma CSS framework
-gem "bulma-rails", "~> 0.9.4"
+gem "bulma-rails", "~> 1.0.4"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
